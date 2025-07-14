@@ -8,21 +8,26 @@
   <h2>Imagen del Día</h2>
   <img id="imagen" width="400" />
 
-  <script>
-    const hoy = new Date().getDay(); // 1 = lunes, ..., 5 = viernes
-    const imagenes = {
-      1: "https://drive.google.com/uc?export=view&id=1Fj15O1ElO4PdpQPtjwmhVB42W9cWs5kp",
-      2: "https://drive.google.com/uc?export=view&id=15JhG1hvHl20ueusDeY-din7TWPqCUKmj",
-      3: "https://drive.google.com/uc?export=view&id=15t_1rS4A9EiPhyEvQADtuc5-AajUIMg7",
-      4: "https://drive.google.com/uc?export=view&id=1KETIAAsHW00mmnmMbMUv0ryQWKMzjZZF",
-      5: "https://drive.google.com/uc?export=view&id=1va98sS6t1mLCoOSfZYIXHefldAC319sz"
-    };
+<script>
+  const hoy = new Date().getDay(); // 0 = domingo, ..., 6 = sábado
 
-    if (imagenes[hoy]) {
-      document.getElementById('imagen').src = imagenes[hoy];
-    } else {
-      document.body.innerHTML += "<p>Hoy no hay imagen (es fin de semana).</p>";
-    }
-  </script>
+  const imagenes = {
+    1: "https://drive.google.com/uc?export=view&id=1Fj15O1ElO4PdpQPtjwmhVB42W9cWs5kp", // lunes
+    2: "https://drive.google.com/uc?export=view&id=15JhG1hvHl20ueusDeY-din7TWPqCUKmj", // martes
+    3: "https://drive.google.com/uc?export=view&id=15t_1rS4A9EiPhyEvQADtuc5-AajUIMg7", // miércoles
+    4: "https://drive.google.com/uc?export=view&id=1KETIAAsHW00mmnmMbMUv0ryQWKMzjZZF", // jueves
+    5: "https://drive.google.com/uc?export=view&id=1va98sS6t1mLCoOSfZYIXHefldAC319sz"  // viernes
+  };
+
+  const img = document.getElementById('imagen');
+
+  if (imagenes[hoy]) {
+    img.src = imagenes[hoy];
+  } else {
+    img.style.display = 'none';
+    document.body.innerHTML += "<p>Hoy no hay imagen (es fin de semana).</p>";
+  }
+</script>
+
 </body>
 </html>
